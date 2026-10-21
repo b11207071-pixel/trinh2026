@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黃氏程 (Hoàng Thị Trình) | 個人簡介網站</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0d9488 0%, #4f46e5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- 導覽列 Navbar -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / 姓名 -->
+                <a href="#home" class="flex items-center space-x-2 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                        程
+                    </div>
+                    <span class="font-bold text-xl tracking-wide text-slate-800 group-hover:text-brand-600 transition-colors">黃氏程</span>
+                </a>
+
+                <!-- 電腦端導覽選單 -->
+                <nav class="hidden md:flex space-x-1">
+                    <a href="#home" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition-all">首頁</a>
+                    <a href="#about" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition-all">關於我</a>
+                    <a href="#skills" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition-all">技能與目標</a>
+                    <a href="#contact" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition-all">聯繫方式</a>
+                </nav>
+
+                <!-- 手機端漢堡選單按鈕 -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-brand-600 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機端抽屜式選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#home" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">首頁</a>
+            <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">關於我</a>
+            <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">技能與目標</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">聯繫方式</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- 1. 首頁 / 個人介紹 Hero Section -->
+        <section id="home" class="relative py-16 lg:py-28 overflow-hidden flex items-center min-h-[85vh]">
+            <!-- 背景裝飾圓圈 -->
+            <div class="absolute -top-20 -left-20 w-96 h-96 bg-brand-100 rounded-full blur-3xl opacity-60 -z-10 pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl opacity-60 -z-10 pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium">
+                            <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+                            <span>開南大學 資訊管理學系</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                            嗨，我是 <span class="gradient-text">黃氏程</span> 👋
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-600 max-w-2xl leading-relaxed">
+                            大家好，我是黃氏程，目前就讀資訊管理系，很高興認識大家。
+                        </p>
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
+                            <a href="#about" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-brand-600 text-white font-medium shadow-lg shadow-brand-500/25 hover:bg-brand-700 hover:shadow-xl transition-all text-center">
+                                認識我更多 <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white text-slate-700 font-medium border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all text-center shadow-sm">
+                                聯絡資訊
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 首頁個人照形象卡片 -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-500 to-accent-500 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-lg"></div>
+                            <div class="relative bg-white p-6 rounded-3xl shadow-xl border border-slate-100 text-center space-y-4">
+                                <div class="w-36 h-36 mx-auto rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border-4 border-brand-200 shadow-md">
+                                    <!-- Embedded image profile.jpg.jpg -->
+                                    <img src="./image/jub.jpg" alt="黃氏程照片" class="w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/300x300/14b8a6/ffffff?text=黃氏程';">
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">黃氏程 (Hoàng Thị Trình)</h3>
+                                    <p class="text-sm text-slate-500">開南大學 資訊管理學系</p>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 pt-2 text-xs text-slate-600 border-t border-slate-100">
+                                    <div class="bg-slate-50 p-2 rounded-lg">
+                                        <span class="block font-semibold text-brand-600">身分</span>
+                                        <span>大學生</span>
+                                    </div>
+                                    <div class="bg-slate-50 p-2 rounded-lg">
+                                        <span class="block font-semibold text-accent-600">專業領域</span>
+                                        <span>資訊管理</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 關於我 Section -->
+        <section id="about" class="py-20 bg-slate-100/70 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- 章節標題 -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">關於我</h2>
+                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="mt-4 text-slate-600">深入了解我的學習背景、生活態度與興趣愛好。</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- 嵌入個人大圖的照片卡片 -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 space-y-6">
+                            <div class="relative group overflow-hidden rounded-xl bg-slate-100 aspect-[4/5] flex items-center justify-center shadow-sm">
+                                <!-- Embedded user photo profile.jpg.jpg -->
+                                <img src="./image/jub.jpg" alt="黃氏程照片" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/400x500/14b8a6/ffffff?text=黃氏程';">
+                            </div>
+                            <div class="space-y-3">
+                                <h3 class="text-xl font-bold text-slate-800">黃氏程 (Hoàng Thị Trình)</h3>
+                                <p class="text-sm text-slate-600 leading-relaxed">
+                                    目前就讀於資訊管理學系，熱衷於探索資訊科技與資料處理的結合，並積極學習各種新技能。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 興趣卡片列表 -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center">
+                                <i class="fa-solid fa-heart text-brand-500 mr-2.5"></i> 我的興趣與嗜好
+                            </h3>
+                            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                                在課業之餘，我喜歡透過多樣的生活體驗來充實自己、放鬆心情：
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- 興趣 1: 旅遊 -->
+                                <div class="p-4 rounded-xl bg-slate-50 hover:bg-brand-50/50 border border-slate-100 hover:border-brand-200 transition-all group flex items-start space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-plane text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">旅遊</h4>
+                                        <p class="text-xs text-slate-500 mt-1">探索新的景點與文化，拓展視野。</p>
+                                    </div>
+                                </div>
+
+                                <!-- 興趣 2: 拍照 -->
+                                <div class="p-4 rounded-xl bg-slate-50 hover:bg-brand-50/50 border border-slate-100 hover:border-brand-200 transition-all group flex items-start space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-camera text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">拍照</h4>
+                                        <p class="text-xs text-slate-500 mt-1">紀錄生活中的美好瞬間與風景。</p>
+                                    </div>
+                                </div>
+
+                                <!-- 興趣 3: 看電影 -->
+                                <div class="p-4 rounded-xl bg-slate-50 hover:bg-brand-50/50 border border-slate-100 hover:border-brand-200 transition-all group flex items-start space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-film text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">看電影</h4>
+                                        <p class="text-xs text-slate-500 mt-1">沉浸於豐富故事中，體驗不同人生。</p>
+                                    </div>
+                                </div>
+
+                                <!-- 興趣 4: 聽音樂 -->
+                                <div class="p-4 rounded-xl bg-slate-50 hover:bg-brand-50/50 border border-slate-100 hover:border-brand-200 transition-all group flex items-start space-x-3">
+                                    <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-music text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800">聽音樂</h4>
+                                        <p class="text-xs text-slate-500 mt-1">放鬆心情，保持學習與生活的專注。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 技能 / 學習目標 Section -->
+        <section id="skills" class="py-20 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- 章節標題 -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">技能與學習目標</h2>
+                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="mt-4 text-slate-600">不斷精進現有技術，並設定清晰的未來學習成長藍圖。</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 現有技能卡片 -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-laptop-code text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800">專業技能</h3>
+                            </div>
+
+                            <div class="space-y-6">
+                                <!-- 技能 1 -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-slate-700">基本的電腦操作</span>
+                                        <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">熟練應用</span>
+                                    </div>
+                                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-brand-500 h-2.5 rounded-full w-4/5"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 技能 2 -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-slate-700">資料整理</span>
+                                        <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">良好</span>
+                                    </div>
+                                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-brand-500 h-2.5 rounded-full w-3/4"></div>
+                                    </div>
+                                </div>
+
+                                <!-- 技能 3 -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="text-sm font-medium text-slate-700">簡報製作</span>
+                                        <span class="text-xs font-semibold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">良好</span>
+                                    </div>
+                                    <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-brand-500 h-2.5 rounded-full w-3/4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-4 border-t border-slate-100">
+                            <p class="text-xs text-slate-500">機能包含日常電腦處理、文字排版與視覺化簡報內容製作。</p>
+                        </div>
+                    </div>
+
+                    <!-- 學習目標卡片 -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-600 flex items-center justify-center font-bold">
+                                    <i class="fa-solid fa-bullseye text-lg"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-800">學習目標</h3>
+                            </div>
+
+                            <ul class="space-y-4">
+                                <li class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50">
+                                    <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-800">深入前端網頁開發</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5">學習 HTML、CSS、JavaScript 打造流暢且好看的網頁介面。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50">
+                                    <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-800">系統化數據與資料分析</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5">結合資管專業，學習資料庫管理與資訊流程維護。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50">
+                                    <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-800">專案團隊合作經驗</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5">透過課堂專案鍛鍊溝通協調與簡報表達能力。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-4 border-t border-slate-100">
+                            <span class="inline-flex items-center text-xs font-medium text-accent-600">
+                                <i class="fa-solid fa-rocket mr-1"></i> 朝向專業資訊管理人才邁進
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 聯繫方式 Section -->
+        <section id="contact" class="py-20 bg-slate-100/70 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- 章節標題 -->
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">聯繫方式</h2>
+                    <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+                    <p class="mt-4 text-slate-600">歡迎透過以下方式與我聯繫，期待與您交流！</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- 聯絡資訊卡片 -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <!-- Email 卡片 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex items-center space-x-4 hover:shadow-lg transition-shadow">
+                            <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center shrink-0">
+                                <i class="fa-regular fa-envelope text-xl"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">電子郵件 Email</h4>
+                                <a href="mailto:b11207071@gapps.knu.edu.tw" class="text-slate-800 font-medium hover:text-brand-600 transition-colors block truncate text-sm sm:text-base">
+                                    b11207071@gapps.knu.edu.tw
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 電話卡片 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex items-center space-x-4 hover:shadow-lg transition-shadow">
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 text-accent-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">連絡電話 Phone</h4>
+                                <a href="tel:0962068495" class="text-slate-800 font-medium hover:text-accent-600 transition-colors block text-sm sm:text-base">
+                                    0962068495
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 學校卡片 -->
+                        <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-building-columns text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">就讀學校 School</h4>
+                                <p class="text-slate-800 font-medium text-sm sm:text-base">開南大學 資訊管理學系</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 快速留言表單 -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-slate-100">
+                            <h3 class="text-lg font-bold text-slate-800 mb-4">發送訊息</h3>
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1" for="name">您的姓名</label>
+                                    <input type="text" id="name" required placeholder="例如：張小明" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 text-sm transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1" for="email">您的 Email</label>
+                                    <input type="email" id="email" required placeholder="name@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 text-sm transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1" for="message">訊息內容</label>
+                                    <textarea id="message" rows="4" required placeholder="想跟我說點什麼..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 text-sm transition-all"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-3 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2">
+                                    <span>送出訊息</span>
+                                    <i class="fa-regular fa-paper-plane text-sm"></i>
+                                </button>
+                            </form>
+                            <!-- 提交成功提示 -->
+                            <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
+                                <span>感謝您的留言！此為示範訊息，已模擬發送成功。</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© <span id="year"></span> 黃氏程 (Hoàng Thị Trình). All rights reserved.</p>
+            <p class="text-xs text-slate-400 mt-1">開南大學 資訊管理學系 個人網頁設計</p>
+        </div>
+    </footer>
+
+    <!-- 返回頂部按鈕 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-brand-600 text-white shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-700 focus:outline-none z-40" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up text-lg"></i>
+    </button>
+
+    <script>
+        // 設定 Footer 年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 手機選單開關
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // 點擊手機導覽連結時自動關閉選單
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // 返回頂部按鈕邏輯
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 表單提交互動處理 (模擬)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            const form = document.getElementById('contact-form');
+            
+            feedback.classList.remove('hidden');
+            form.reset();
+
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
