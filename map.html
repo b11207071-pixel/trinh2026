@@ -40,6 +40,7 @@ aside h2,.card h2{margin:0 0 10px;font-size:15px;color:var(--muted);font-weight:
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;display:grid;grid-template-columns:minmax(160px,240px) 1fr;overflow:hidden}
 .photo{min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;color:#fff;font-size:12px;background:linear-gradient(150deg,var(--c1),var(--c2));position:relative}
 .photo b{position:absolute;top:8px;left:14px;font-family:"Noto Serif TC",serif;font-size:72px;line-height:1;opacity:.35}
+.photo.has-img{background-size:cover;background-position:center}
 .body{padding:18px 20px}
 .body h3{margin:0 0 4px;font-family:"Noto Serif TC",serif;font-size:24px}
 .tag{display:inline-block;background:var(--chip);border-radius:6px;padding:0 8px;font-size:13px;color:var(--muted)}
@@ -76,23 +77,23 @@ dt{color:var(--muted)}dd{margin:0}
 // 校園名稱與地點資料：換成自己的學校即可
 var CAMPUS = "開南大學";
 var PLACES = [
-  {id:"gate",name:"校門",type:"行政",c:["#4a5560","#7d8a96"],
+  {id:"gate",img:"images/congtruong.jpg",name:"校門",type:"行政",c:["#4a5560","#7d8a96"],
    intro:"校園主要出入口，位於新興街側，進門後沿陽光大道可通往各棟大樓。",hours:"待補充",floor:"警衛室、車輛與人員出入管制",q:"校門"},
-  {id:"ns",name:"NS 行政大樓",type:"行政",c:["#0f5c52","#2f8f7f"],
+  {id:"ns",img:"images/ns.jpg",name:"NS 行政大樓",type:"行政",c:["#0f5c52","#2f8f7f"],
    intro:"位於陽光大道南端的行政中心，與大圓環相接，是校園的主要地標。",hours:"待補充",floor:"行政單位、餐廳與便利商店（依校園地圖標示）",q:"行政大樓"},
-  {id:"a",name:"A 至誠樓",type:"教學",c:["#27406b","#4a6fa8"],
+  {id:"a",img:"images/a.jpg",name:"A 至誠樓",type:"教學",c:["#27406b","#4a6fa8"],
    intro:"位於陽光大道東側的教學大樓，與卓越樓相鄰。",hours:"待補充",floor:"教室與系所空間",q:"至誠樓"},
-  {id:"b",name:"B 卓越樓",type:"教學",c:["#1d5a8a","#4a8fc4"],
+  {id:"b",img:"images/b.jpg",name:"B 卓越樓",type:"教學",c:["#1d5a8a","#4a8fc4"],
    intro:"位於陽光大道東側的教學大樓，靠近圖書館與機車停車場。",hours:"待補充",floor:"教室與系所空間",q:"卓越樓"},
-  {id:"t",name:"T 圖書館",type:"圖書",c:["#6b2d3c","#a8546a"],
+  {id:"t",img:"images/t.jpg",name:"T 圖書館",type:"圖書",c:["#6b2d3c","#a8546a"],
    intro:"位於陽光大道北端，提供閱覽、自習與館藏查詢服務。",hours:"待補充",floor:"閱覽區、自習區與館藏區",q:"圖書館"},
-  {id:"m",name:"M 學生第一宿舍",type:"宿舍",c:["#9a5a12","#d08a2f"],
+  {id:"m",img:"images/m.jpg",name:"M 學生第一宿舍",type:"宿舍",c:["#9a5a12","#d08a2f"],
    intro:"位於校園西側的學生宿舍，鄰近第二宿舍與餐廳、便利商店。",hours:"待補充",floor:"學生住宿空間",q:"學生第一宿舍"},
-  {id:"w",name:"W 學生第二宿舍",type:"宿舍",c:["#8a4a12","#c47a35"],
+  {id:"w",img:"images/kt.jpg",name:"W 學生第二宿舍",type:"宿舍",c:["#8a4a12","#c47a35"],
    intro:"位於校園西側，與第一宿舍相鄰。",hours:"待補充",floor:"學生住宿空間",q:"學生第二宿舍"},
-  {id:"l",name:"L 顏文隆國際會議廳",type:"活動",c:["#6b2d5c","#a2548f"],
+  {id:"l",img:"images/l.jpg",name:"L 顏文隆國際會議廳",type:"活動",c:["#6b2d5c","#a2548f"],
    intro:"校園西側的會議與活動場地，位於永裕體育館旁。",hours:"待補充",floor:"國際會議廳與活動空間",q:"顏文隆國際會議廳"},
-  {id:"y",name:"Y 永裕體育館",type:"體育",c:["#2e6b2d","#5aa458"],
+  {id:"y",img:"images/y.jpg",name:"Y 永裕體育館",type:"體育",c:["#2e6b2d","#5aa458"],
    intro:"校園西側的室內體育場館，周邊另有田徑場、棒球場與球場。",hours:"待補充",floor:"室內運動場地",q:"永裕體育館"}
 ];
 var types = ["全部"].concat(PLACES.map(function(p){return p.type}).filter(function(t,i,a){return a.indexOf(t)===i}));
@@ -117,7 +118,7 @@ function renderCard(){
   var p = PLACES.filter(function(x){return x.id===current})[0];
   $("map").src = "https://maps.google.com/maps?q="+query(p)+"&z=17&output=embed&hl=zh-TW";
   $("card").innerHTML =
-    '<div class="photo" style="--c1:'+p.c[0]+';--c2:'+p.c[1]+'"><b>'+esc(p.name.charAt(0))+'</b>實景照片位置（請替換）</div>'+
+    '<div class="photo'+(p.img?' has-img':'')+'" style="--c1:'+p.c[0]+';--c2:'+p.c[1]+(p.img?';background-image:url('+p.img+'),linear-gradient(150deg,'+p.c[0]+','+p.c[1]+')':'')+'">'+(p.img?'':'<b>'+esc(p.name.charAt(0))+'</b>實景照片位置（請替換）')+'</div>'+
     '<div class="body"><h3>'+esc(p.name)+'</h3><span class="tag">'+esc(p.type)+'</span>'+
     '<p>'+esc(p.intro)+'</p>'+
     '<dl><dt>開放時間</dt><dd>'+esc(p.hours)+'</dd><dt>館內重點</dt><dd>'+esc(p.floor)+'</dd></dl>'+
